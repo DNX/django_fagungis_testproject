@@ -27,7 +27,9 @@ On the server create a "sudoer" user and change the env.hosts value in the proje
 Configure your domain to point to your server and set the env.nginx_server_name in the fabfile.py OR you can simply add a line in your /etc/hosts like:
 
 ``<server-ip> fagungis.test``
+
 example:
+
 ``192.168.1.2 fagungis.test``
 
 Start test setup from the root of the test project:
