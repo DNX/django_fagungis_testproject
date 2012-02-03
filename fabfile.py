@@ -10,9 +10,9 @@ def fagungis_test():
     #  name of your project - no spaces, no special chars
     env.project = 'fagungis_test'
     #  hg repository of your project
-    env.repository = 'ssh://hg@bitbucket.org/DNX/django_fagungis_testproject'
+    env.repository = 'https://bitbucket.org/DNX/django_fagungis_testproject'
     #  hosts to deploy your project, users must be sudoers
-    env.hosts = ['root@192.168.1.1', ]
+    env.hosts = ['denis@192.168.1.151', ]
     # additional packages to be installed on the server
     env.additional_packages = [
         'mercurial',
@@ -29,17 +29,27 @@ def fagungis_test():
     #  the root path of your project
     env.code_root = join(env.projects_path, env.project)
     #  the path where manage.py and settings.py of this project is located
-    env.django_project_root = join(env.code_root, 'sites', 'prod')
+    env.django_project_root = env.code_root
     #  django media dir
     env.django_media_path = join(env.code_root, 'media')
     #  django static dir
     env.django_static_path = join(env.code_root, 'static')
+    #  django media url and root dir
+    env.django_media_url = '/site_media/media/'
+    env.django_media_root = env.code_root
+    #  django static url and root dir
+    env.django_static_url = '/site_media/static/'
+    env.django_static_root = env.code_root
     #  do you use south in your django project?
     env.south_used = False
     #  virtualenv root
     env.virtenv = join(env.django_user_home, 'envs', env.project)
     #  some virtualenv options, must have at least one
     env.virtenv_options = ['distribute', 'no-site-packages', ]
+    #  location of your pip requirements file
+    #  http://www.pip-installer.org/en/latest/requirements.html#the-requirements-file-format
+    #  set it to None to not use
+    env.requirements_file = join(env.code_root, 'requirements', 'project.txt')
     #  always ask user for confirmation when run any tasks
     env.ask_confirmation = True
 
@@ -54,7 +64,7 @@ def fagungis_test():
     ### END gunicorn settings ###
 
     ### START nginx settings ###
-    env.nginx_server_name = 'example.com'  # Only domain name, without 'www' or 'http://'
+    env.nginx_server_name = 'fagungis.test'  # Only domain name, without 'www' or 'http://'
     env.nginx_conf_file = '%(django_user_home)s/configs/nginx/%(project)s.conf' % env
     env.nginx_client_max_body_size = 10  # Maximum accepted body size of client request, in MB
     env.nginx_htdocs = '%(django_user_home)s/htdocs' % env
