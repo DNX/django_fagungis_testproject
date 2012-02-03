@@ -28,7 +28,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3", # Add "postgresql_psycopg2", "postgresql", "mysql", "sqlite3" or "oracle".
+        "ENGINE": "django.db.backends.sqlite3",  # Add "postgresql_psycopg2", "postgresql", "mysql", "sqlite3" or "oracle".
         "NAME": "dev.db",                       # Or path to database file if using sqlite3.
         "USER": "",                             # Not used with sqlite3.
         "PASSWORD": "",                         # Not used with sqlite3.
@@ -110,7 +110,7 @@ MIDDLEWARE_CLASSES = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
-ROOT_URLCONF = "django_fagungis_testproject.urls"
+ROOT_URLCONF = "urls"
 
 TEMPLATE_DIRS = [
     os.path.join(PROJECT_ROOT, "templates"),
@@ -123,9 +123,9 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "django.core.context_processors.media",
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
-    
+
     "staticfiles.context_processors.static",
-    
+
     "pinax.core.context_processors.pinax_settings",
 ]
 
@@ -138,19 +138,19 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.humanize",
-    
+
     "pinax.templatetags",
-    
+
     # theme
     "pinax_theme_bootstrap",
-    
+
     # external
     "staticfiles",
     "compressor",
     "debug_toolbar",
-    
+
     # Pinax
-    
+
     # project
 ]
 
